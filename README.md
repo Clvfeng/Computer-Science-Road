@@ -1,2 +1,33 @@
-# Computer-Science-Road
-My computer science learning roadmap, notes and growth records.
+# Computer Science Road
+
+这是我的计算机成长记录仓库。
+
+## 我的目标
+
+成为具备AI能力的软件工程师。
+
+## 当前阶段
+
+中国民航大学
+智能与计算机类
+准大二学生
+
+## 学习方向
+
+- C++
+- 数据结构
+- Python
+- 软件工程
+- AI应用开发
+
+## 长期目标
+
+计算机基础
++
+软件工程能力
++
+AI应用能力
+
+## 学习记录
+
+持续更新。
