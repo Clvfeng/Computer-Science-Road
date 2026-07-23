@@ -248,7 +248,7 @@ AI应用能力
 学习：
 
 - 基础语法
-- 函数
+- 函数 [完成]
 - 类
 - 文件操作
 
@@ -328,7 +328,10 @@ Computer-Science-Road
 │
 ├── 03-Python
 │   ├── notes
-│   └── projects
+│   └── exercises
+│       ├── hello.py
+│       ├── calculator.py
+│       └── function.py
 │
 ├── 04-计算机基础
 │
@@ -350,39 +353,31 @@ Computer-Science-Road
 ## 已完成
 
 
-### Day1 Python恢复任务
+### Day1 Python恢复
 
-项目：
+项目：03-Python/exercises/hello.py
 
-```
-03-Python/projects/hello.py
-```
+内容：个人信息卡片
 
-
-内容：
-
-个人信息卡片。
+涉及知识：print、变量、字符串、f-string
 
 
-涉及知识：
+### Day2 Python函数
 
-- print()
-- 变量
-- 字符串
-- f-string
+项目：03-Python/exercises/function.py
+
+内容：函数版计算器
+
+涉及知识：def定义函数、参数传递、return返回值、错误运算符处理
 
 
 ---
 
 ## 当前任务
 
-
 继续恢复Python基础。
 
-
-下一阶段：
-
-完成更多Python小项目。
+下一阶段：列表、字典、文件操作、Todo List项目
 
 
 ---
