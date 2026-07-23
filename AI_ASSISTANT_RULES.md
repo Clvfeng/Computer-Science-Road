@@ -89,3 +89,8 @@
 
 
 请始终按照以上规则辅助我。
+
+每次开始新的对话时，请先读取：
+AI_MEMORY.md
+AI_ASSISTANT_RULES.md
+以及必要时读取00-Personal-Profile中的个人档案。
