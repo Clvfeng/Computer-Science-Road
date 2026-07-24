@@ -249,6 +249,7 @@ AI应用能力
 
 - 基础语法
 - 函数 [完成]
+- 列表和元组 [完成]
 - 类
 - 文件操作
 
@@ -331,7 +332,8 @@ Computer-Science-Road
 │   └── exercises
 │       ├── hello.py
 │       ├── calculator.py
-│       └── function.py
+│       ├── function.py
+│       └── list_tuple.py
 │
 ├── 04-计算机基础
 │
@@ -371,13 +373,31 @@ Computer-Science-Road
 涉及知识：def定义函数、参数传递、return返回值、错误运算符处理
 
 
+### Day3 函数进阶
+
+项目：03-Python/exercises/function.py（更新）
+
+内容：默认参数、作用域
+
+涉及知识：global关键字、局部变量与全局变量、默认参数
+
+
+### Day4 列表和元组
+
+项目：03-Python/exercises/list_tuple.py
+
+内容：列表和元组操作
+
+涉及知识：列表增删改查、for循环遍历、元组创建与解包
+
+
 ---
 
 ## 当前任务
 
 继续恢复Python基础。
 
-下一阶段：列表、字典、文件操作、Todo List项目
+下一阶段：字典、集合、文件操作、Todo List项目
 
 
 ---

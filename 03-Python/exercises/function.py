@@ -18,4 +18,8 @@ print(calculator(10, 5, "*"))
 print(calculator(10, 5, "/"))
 print(calculator(10, 0, "/"))
 print(calculator(10, 5, "^"))
-print(calculator(10, 5))  
+print(calculator(10, 5))
+
+numbers = [10, 20, 30, 40, 50]
+for num in numbers:
+    print(calculator(num, 5, "+"))
