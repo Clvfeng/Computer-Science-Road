@@ -1,4 +1,4 @@
-def calculator(num1, num2, operator):
+def calculator(num1, num2, operator="+"):
     if operator == "+" :
         return f"{num1}+{num2}={num1+num2}"
     elif operator == "-" :
@@ -18,3 +18,4 @@ print(calculator(10, 5, "*"))
 print(calculator(10, 5, "/"))
 print(calculator(10, 0, "/"))
 print(calculator(10, 5, "^"))
+print(calculator(10, 5))  
