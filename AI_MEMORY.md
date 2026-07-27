@@ -431,11 +431,15 @@ project
 | 条件判断 if-elif-else | ✅ |
 | 函数：def、参数、return、作用域 | ✅ |
 | 列表 list、元组 tuple、字典 dict、集合 set | ✅ |
-| 函数重构：main/add_student/delete_student/update_student/show_students | ← 当前 |
-| 异常处理 try/except | 随重构加入 |
-| 文件操作 txt/JSON + 数据持久化 | 待进行 |
-| **项目：student_manager V1（函数结构）** | 进行中 |
-| **项目：student_manager V2（文件存储）** | Phase 1 结尾 |
+| 函数重构：main/add_student/delete_student/update_student/show_students | ✅ |
+| 异常处理 try/except | ✅ |
+| 文件操作 JSON + 数据持久化 | ✅ |
+| **项目：student_manager V1（函数结构）** | ✅ |
+| **项目：student_manager V2（JSON文件存储）** | ✅ |
+
+**Phase 1 状态：✅ 已完成**
+
+## 准备进入 Phase 2：Python工程能力 + C++/数据结构恢复
 
 ### Phase 2：Python工程能力 + C++/数据结构恢复
 

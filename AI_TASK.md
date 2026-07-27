@@ -10,9 +10,14 @@
 
 ## 当前阶段
 
-Phase 1：Python基础恢复
+Phase 1：Python基础恢复 ✅ 已完成
 
-目标：完成 student_manager V1（函数重构 + 文件存储）
+## Phase 2：Python工程能力（当前）
+
+目标：具备工程化开发能力，恢复数据结构基础
+
+学习内容：面向对象、项目结构、Git流程、Debug能力
+C++复习 + 数据结构（数组、链表、栈、队列、树）
 
 进度记录：03-Python/PROGRESS.md
 
@@ -25,6 +30,7 @@ Phase 1：Python基础恢复
 - Day4：列表和元组（增删改查、for遍历、解包）
 - 补充：可变对象 vs 不可变对象
 - Day5：字典和集合 + 学生信息管理小程序
+- Day6：student_manager V1 函数重构 + V2 JSON文件存储
 
 
 ## 当前目标
@@ -32,24 +38,17 @@ Phase 1：Python基础恢复
 完成Python基础恢复，进入数据结构阶段。
 
 
+## Phase 1 已完成项目
+
+| 项目 | 状态 |
+|:-----|:----:|
+| student_manager V1（函数结构 + CLI菜单） | ✅ |
+| student_manager V2（JSON文件存储 + 异常处理） | ✅ |
+| README.md + 工程文档 | ✅ |
+
 ## 当前任务
 
-Day6：重构 student_manager V1
-
-目标：
-1. 函数拆分：main()、add_student()、delete_student()、update_student()、show_students()
-2. 完善CLI菜单系统（1添加 2删除 3修改 4查看 5退出）
-3. 增加基础异常处理（try/except）
-4. 增加 README.md
-
-原则：不引入类、不引入复杂目录结构、理解代码结构 > 完成速度
-
-## 后续任务（Phase 1 内）
-
-| 学习内容 | 项目 |
-|:---------|:-----|
-| 异常处理 + 文件操作 | student_manager V2（文件持久化 txt/JSON） |
-| 阶段复盘 | 完善工程文档
+等待进入 Phase 2
 
 ## Phase 2：Python工程能力（待开始）
 
