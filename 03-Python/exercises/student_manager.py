@@ -9,10 +9,29 @@
 #   4. 删除指定学生
 #   5. 修改指定学生
 #   6. 退出
+import json
+def load_data():
+    """从文件读取数据"""
+    try:
+        with open("data.json","r",encoding="utf-8") as f:
+            return json.load(f)
+    except:
+        return []
+
+def save_data(students):
+    """保存数据到文件"""
+    with open("data.json","w",encoding="utf-8") as f:
+        json.dump(students,f)
+
+
+
+
+
+
 def add_student(students):
-        name = input("输入名字")
+        name = input("输入名字:")
         try:
-            score=int(input("输入成绩"))
+            score=int(input("输入成绩:"))
         except:
             print("输入无效，输入成绩必须是数字")
             return
@@ -26,7 +45,7 @@ def show_students(students):
         print(f"{i}.{s['name']}:{s['score']}")
 
 def search_student(students):
-    name = input("输入姓名")
+    name = input("输入姓名:")
     if not students:
         print("该列表为空")
         return
@@ -40,7 +59,7 @@ def search_student(students):
         print("NOT FOUND")
 
 def delete_student(students):
-    name = input("输入要删除学生的名字")
+    name = input("输入要删除学生的名字:")
     if not students:
         print("该列表为空")
         return
@@ -54,7 +73,7 @@ def delete_student(students):
         print("没有找到要删除的学生")
 
 def update_student(students):
-    name = input("输入要修改的学生姓名")
+    name = input("输入要修改的学生姓名:")
     # 遍历查找，找到后让用户输入新成绩，更新 s["score"]
     if not students:
         print("该列表为空")
@@ -64,7 +83,7 @@ def update_student(students):
         if s["name"] == name:
             index = 1
             try:
-                score = int(input("输入成绩"))
+                score = int(input("输入成绩:"))
                 s["score"] = score
             except:
                 print("输入无效，输入成绩必须是数字")
@@ -72,8 +91,8 @@ def update_student(students):
     if index == 0:
         print("没有找到要修改的学生")
 def main():
+    students = load_data()
 
-    students = []  # 列表，每个元素是一个字典
     while True:
         print("\n===== 学生信息管理系统 =====")
         print("1. 添加学生")
@@ -101,9 +120,10 @@ def main():
             update_student(students)
         elif choice == "6":
             print("再见")
+            save_data(students)
             break
 
         else:
-            print("输入无效，请重新选择")
+            print("输入无效，请重新选择:")
 if __name__ == "__main__":
     main()
