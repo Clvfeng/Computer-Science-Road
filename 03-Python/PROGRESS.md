@@ -37,6 +37,7 @@ Phase 1：Python基础恢复
 | 字典和集合练习 | exercises/dict_set_practice.py | ✅ dict、set |
 | 学生信息管理 V1 | exercises/student_manager.py | ✅ 命令行版，list+dict存储 |
 | 学生信息管理 V2 | exercises/student_manager.py | ✅ 函数重构 + JSON文件存储 + 异常处理 |
+| 学生信息管理 V2.1 | exercises/student_manager.py | ✅ 改用 Student 类（OOP改造） |
 
 
 ## 当前项目
@@ -60,5 +61,5 @@ Phase 1：Python基础恢复
 | 阶段 | 状态 |
 |:----|:----:|
 | Phase 1：Python基础恢复 | ✅ 已完成 |
-| Phase 2：Python工程能力 | 待开始 |
+| Phase 2：Python工程能力 | 进行中（面向对象起步） |
 | Phase 3：AI应用开发 | 待开始 |

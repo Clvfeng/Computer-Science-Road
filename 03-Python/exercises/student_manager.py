@@ -10,18 +10,32 @@
 #   5. 修改指定学生
 #   6. 退出
 import json
+class Student:
+    def __init__(self,name,score):
+        self.name = name
+        self.score = score
+
+    def to_dict(self):
+        return {"name":self.name,"score":self.score}
+
+    @staticmethod
+
+    def from_dict(data):
+        return Student(data["name"],data["score"])
+
 def load_data():
     """从文件读取数据"""
     try:
         with open("data.json","r",encoding="utf-8") as f:
-            return json.load(f)
+            data = json.load(f)
+            return [Student.from_dict(s) for s in data]
     except:
         return []
 
 def save_data(students):
     """保存数据到文件"""
     with open("data.json","w",encoding="utf-8") as f:
-        json.dump(students,f)
+        json.dump([s.to_dict() for s in students], f)
 
 
 
@@ -35,14 +49,14 @@ def add_student(students):
         except:
             print("输入无效，输入成绩必须是数字")
             return
-        students.append({"name":name,"score":score})
+        students.append(Student(name,score))
 
 def show_students(students):
     if not students:
         print("该列表为空")
         return
     for i,s in enumerate(students,1):
-        print(f"{i}.{s['name']}:{s['score']}")
+        print(f"{i}.{s.name}:{s.score}")
 
 def search_student(students):
     name = input("输入姓名:")
@@ -51,8 +65,8 @@ def search_student(students):
         return
     for s in students:
         index = 0
-        if s["name"] == name:
-            print(f"{s['name']}:{s['score']}")
+        if s.name == name:
+            print(f"{s.name}:{s.score}")
             index=1
             break
     if index == 0:
@@ -65,7 +79,7 @@ def delete_student(students):
         return
     for s in students:
             index = 0
-            if s["name"] == name:
+            if s.name == name:
                 students.remove(s)
                 index=1
                 break
@@ -80,11 +94,11 @@ def update_student(students):
         return
     index = 0
     for s in students:
-        if s["name"] == name:
+        if s.name == name:
             index = 1
             try:
                 score = int(input("输入成绩:"))
-                s["score"] = score
+                s.score = score
             except:
                 print("输入无效，输入成绩必须是数字")
                 break
