@@ -127,6 +127,11 @@ AI应用能力
 - 可变对象 vs 不可变对象
 - 列表：创建、访问、append、insert、remove、pop、for遍历
 - 元组：创建、解包
+- 字典 dict、集合 set
+- 文件读写 JSON（load/dump）
+- 类 class：__init__、继承、super()、@property、@classmethod
+- 模块化：多文件结构、import
+- 虚拟环境：venv 创建/激活/pip安装
 
 待学习：
 
@@ -439,7 +444,10 @@ project
 
 **Phase 1 状态：✅ 已完成**
 
-## 准备进入 Phase 2：Python工程能力 + C++/数据结构恢复
+## Phase 2 当前进度
+
+Python部分（OOP、模块化、虚拟环境）✅ 已完成
+C++/数据结构恢复 ← 当前
 
 ### Phase 2：Python工程能力 + C++/数据结构恢复
 
@@ -447,12 +455,12 @@ project
 
 | 内容 | 状态 |
 |:----|:----:|
-| 模块化 import + 多文件结构 | 待开始 |
-| 面向对象 class | 待开始 |
-| 虚拟环境 venv + pip | 待开始 |
-| C++复习 + 数据结构（数组、链表、栈、队列、树） | 待开始 |
+| 面向对象 class（继承、property、classmethod） | ✅ |
+| 模块化 import + 多文件结构 | ✅ |
+| 虚拟环境 venv + pip | ✅ |
+| **C++复习 + 数据结构（数组、链表、栈、队列、树）** | **← 当前** |
 | **项目：student_manager V3（SQLite）** | Phase 2 |
-| **项目：数据结构实现（C++）** | Phase 2 |
+| **项目：数据结构实现（C++）** | **← 当前** |
 
 ### Phase 3：后端/Web/数据库/AI项目
 
