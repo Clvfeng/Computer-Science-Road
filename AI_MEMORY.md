@@ -264,6 +264,7 @@ Computer-Science-Road
 
 ## 已完成
 
+
 ### Day1 Python恢复
 项目：03-Python/exercises/hello.py
 内容：个人信息卡片
@@ -273,7 +274,7 @@ Computer-Science-Road
 内容：函数版计算器
 
 ### Day3 函数进阶
-项目：03-Python/exercises/function.py（更新）
+项目：03-Python/exercises/function.py
 内容：默认参数、作用域、global
 
 ### Day4 列表和元组
@@ -284,16 +285,28 @@ Computer-Science-Road
 - 列表是可变对象：函数内修改不需要 global
 - 数字/字符串/元组是不可变对象：重新赋值需要 global
 
+### Day5 字典和集合
+项目：03-Python/exercises/student_manager.py V1
+内容：dict、set、综合项目
+
+### Day6 模块化重构
+项目：03-Python/exercises/student_manager/（4文件）
+内容：多文件拆分、import
+
+### Day7 OOP深化
+项目：student.py（Person→Student继承）
+内容：继承、@property、@classmethodgit  
+
+### Day8 虚拟环境
+项目：student_manager/venv/
+内容：venv创建、pip安装
+
 
 ## 当前任务
 
-Day5：字典和集合 + 学生信息管理小程序。
+Phase 2下半：C++/数据结构恢复（数组、链表、栈、队列、树）
 
-下一阶段：文件操作、Todo List项目、面向对象。
-
-
----
-
+下一阶段：数据结构入门、AI应用开发（Phase 3）
 # 8. AI辅助规则
 
 AI角色：不是代码生成器。
@@ -499,13 +512,13 @@ C++/数据结构恢复 ← 当前
 # 日期
 
 ## 今日目标
-- 
+-
 
 ## 今日完成
-- 
+-
 
 ## 学习内容
-- 
+-
 
 ## 写的代码
 文件：
