@@ -15,3 +15,8 @@ Thumbs.db
 
 # Project
 setup-env.ps1
+
+# C/C++
+*.exe
+*.o
+*.obj
