@@ -63,3 +63,12 @@ Phase 1：Python基础恢复
 | Phase 1：Python基础恢复 | ✅ 已完成 |
 | Phase 2：Python工程能力 | 进行中（面向对象起步） |
 | Phase 3：AI应用开发 | 待开始 |
+
+## C++ / 数据结构进度
+
+### 2026-08-01 ~ 08-02
+| 内容 | 文件 | 状态 |
+|:----|:-----|:----:|
+| 结构体指针、-> 、nullptr | 01-C++/struct_pointer.cpp | ✅ |
+| 链表：节点连接 + 遍历 | 01-C++/linked_list_practice.cpp | ✅ |
+| 链表：头插 + 按值删除 | 01-C++/linked_list_ops.cpp | ✅ |
