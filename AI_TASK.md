@@ -8,6 +8,21 @@
 
 ---
 
+
+## ⏸ 暂停状态（2026-08-05 起）
+
+- 原因：个人事务，学习计划暂停一段时间
+- 长期路线不变：Python工程能力 → C++/数据结构 → 后端/Web/AI
+- 恢复方法：回来后直接说"恢复学习"，AI 会读取本文件从暂停点继续
+
+### 暂停点（恢复时从这里继续）
+
+1. **链表练习未完成**：01-C++/linked_list_ops.cpp 的 add_tail / insert_after 还有 2 个 bug 未修
+   - add_tail：循环条件应为 while (cur->next != nullptr)（找最后一个节点，不是 nullptr）
+   - insert_after：应比较 target 不是 value；循环里缺 cur = cur->next;
+2. **20分钟代码阅读**：素材 tqdm（1000-5000行Python小项目），任务：README → 文件结构 → std.py 开头 → 回答3个问题（未完成）
+3. **栈（Stack）入门**：未开始
+
 ## 当前阶段
 
 Phase 1：Python基础恢复 ✅ 已完成
@@ -90,4 +105,4 @@ C++ 复习 + 数据结构恢复（数组、链表、栈、队列、树）
 4. 更新 03-Python/PROGRESS.md 记录进度
 5. 不赶进度，理解代码结构 > 完成速度
 6. 软件工程能力 > 单纯Python语法数量
-7. 每天20分钟代码阅读（GitHub小项目README、文件结构、函数设计）
+7. 每天20分钟代码阅读（素材由AI指定：1000-5000行Python小项目，不随机浏览GitHub）

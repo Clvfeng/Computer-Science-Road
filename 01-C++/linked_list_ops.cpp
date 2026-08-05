@@ -28,6 +28,48 @@ void print_list(Node *head)
     }
 }
 
+// 尾插法：在链表末尾添加节点
+void add_tail(Node *&head, int value)
+{
+    // ① 创建新节点 p（new，data 赋值，next = nullptr）
+    Node *p = new Node;
+    p->data = value;
+    p->next = nullptr;
+    // ② 如果链表是空的：head = p; return;
+    if(head == nullptr){
+        head = p;
+        return;
+    }
+    // ③ 否则：cur 从头走，走到最后一个节点，cur->next = p;
+    else{
+        Node *cur = head;
+        while(cur->next != nullptr){
+            cur = cur->next;
+        }
+        cur->next = p;
+    }
+}
+
+// 在值为 target 的节点后面插入新节点
+void insert_after(Node *head, int target, int value)
+{
+    // ① 创建新节点 p
+    Node *p =  new Node;
+    p->data = value;
+    // ② cur 从头找 target
+    Node *cur = head;
+    // ③ 找到：p->next = cur->next; cur->next = p;
+    while(cur != nullptr){
+        if(cur->data == target){
+            p->next = cur->next;
+            cur->next = p;
+            return ;
+        }
+        cur = cur->next;
+    }
+    // ④ 找不到：什么都不做（函数自然结束）
+}
+
 // 删除第一个值为 value 的节点
 void delete_value(Node *&head, int value)
 {
@@ -42,15 +84,17 @@ void delete_value(Node *&head, int value)
     // 情况2：普通情况
     Node* prev = head;
     Node* cur = head->next;
-      while (cur != nullptr) {
-          if (cur->data == value) {
-              prev->next = cur->next;
-              delete cur;
-              return;
-          }
-          prev = cur;         // 往前走一步：prev 跟上
-          cur = cur->next;    // cur 往前
-      }
+    while (cur->next != nullptr)
+    {
+        if (cur->data == value)
+        {
+            prev->next = cur->next;
+            delete cur;
+            return;
+        }
+        prev = cur;      // 往前走一步：prev 跟上
+        cur = cur->next; // cur 往前
+    }
     //   走完都没找到 → 什么都不做（函数自然结束）
 
 
@@ -65,5 +109,9 @@ int main()
     print_list(head); // 期望输出: 1 2 3
     delete_value(head, 2);
     print_list(head); // 期望输出: 1 3
+    add_tail(head, 4);
+    print_list(head); // 期望: 1 2 3 4
+    insert_after(head, 2, 99);
+    print_list(head); // 期望: 1 2 99 3 4
     return 0;
 }
