@@ -84,7 +84,7 @@ void delete_value(Node *&head, int value)
     // 情况2：普通情况
     Node* prev = head;
     Node* cur = head->next;
-    while (cur->next != nullptr)
+    while (cur != nullptr)
     {
         if (cur->data == value)
         {
@@ -102,16 +102,16 @@ void delete_value(Node *&head, int value)
 
 int main()
 {
-    Node *head = nullptr; // 空链表
+    Node *head = nullptr;
     add_head(head, 3);
     add_head(head, 2);
-    add_head(head, 1);
-    print_list(head); // 期望输出: 1 2 3
-    delete_value(head, 2);
-    print_list(head); // 期望输出: 1 3
-    add_tail(head, 4);
-    print_list(head); // 期望: 1 2 3 4
-    insert_after(head, 2, 99);
-    print_list(head); // 期望: 1 2 99 3 4
+    add_head(head, 1); // 1 2 3
+    print_list(head);
+    add_tail(head, 4); // 1 2 3 4
+    print_list(head);
+    insert_after(head, 2, 99); // 1 2 99 3 4
+    print_list(head);
+    delete_value(head, 2); // 1 99 3 4
+    print_list(head);
     return 0;
 }
