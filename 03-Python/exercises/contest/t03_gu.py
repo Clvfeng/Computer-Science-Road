@@ -24,6 +24,7 @@
 # - gu 是两个相邻字符凑成的，一个字符不能被用两次
 #
 # TODO:
+
 s = input()
-new_s = s.lower()
-print(new_s.count('gu'))
+lower_s = s.lower()
+print(lower_s.count("gu"))

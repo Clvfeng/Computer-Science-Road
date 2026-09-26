@@ -14,40 +14,23 @@
 #    让我看到它们的行为差异（要打印 3 次结果）
 #
 # 你的代码：
-nums = [3,1,2]
-_nums = sorted(nums)
+
+nums = [3, 1, 2]
+
+sorted_nums = sorted(nums)
 print(nums)
-print(_nums)
+print(sorted_nums)
+
 nums.sort()
 print(nums)
 
-
-# ---------------------------------------------------------------
-# 第 2 题
-# ① 「字符串是不可变的」是什么意思？这对使用 replace / lower 这类
-#    工具有什么影响？
-# ② 写代码：s = "ab"
-#    分别打印 s 和 s.upper() 的结果，用实际输出证明你的说法
-#
-# 你的代码：
 s = "ab"
 print(s)
 print(s.upper())
 
-
-
-# ---------------------------------------------------------------
-# 第 3 题
-# ① 「预处理（用空间换时间）」是干嘛的？什么情况下该想到它？
-# ② 写代码：给一个列表 [5, 3, 5, 7, 3]
-#    算出每个数字【第一次出现】的下标，存进字典并打印出来
-#
-# 你的代码：
-s=[5,3,5,7,3]
-xb={}
-j=0
-for i in s:
-    if i not in xb:
-        xb[i] = j
-    j=j+1
-print(xb)
+values = [5, 3, 5, 7, 3]
+first_index = {}
+for idx, value in enumerate(values):
+    if value not in first_index:
+        first_index[value] = idx
+print(first_index)

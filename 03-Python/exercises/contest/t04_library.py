@@ -54,23 +54,25 @@
 # - "次数最多且字母最小"怎么保证？想想按什么顺序去比
 #
 # TODO:
-count={"A":0,"B":0,"C":0}
-Time={"A":0,"B":0,"C":0}
+
+count = {"A": 0, "B": 0, "C": 0}
+total_time = {"A": 0, "B": 0, "C": 0}
 n = int(input())
-for _ in range(n) :
-    name,hour=input().split()
-    if name == 'A':
-        Time["A"]+=int(hour)
-        count["A"]=count.get("A",0)+1
-    elif name == 'B':
-        Time["B"]+=int(hour)
-        count["B"]=count.get("B",0)+1
-    elif name == 'C':
-        Time["C"]+=int(hour)
-        count["C"]=count.get("C",0)+1
-mindex = "A"
-for k,v in count.items():
-    if count[mindex] < count[k]:
-        mindex=k
-print(f"Most popular: {mindex}")
-print(f"Average time: {Time[mindex]/count[mindex]:.1f}")
+for _ in range(n):
+    category, hours = input().split()
+    if category == "A":
+        total_time["A"] += float(hours)
+        count["A"] = count.get("A", 0) + 1
+    elif category == "B":
+        total_time["B"] += float(hours)
+        count["B"] = count.get("B", 0) + 1
+    elif category == "C":
+        total_time["C"] += float(hours)
+        count["C"] = count.get("C", 0) + 1
+
+best_category = "A"
+for category, cnt in count.items():
+    if count[best_category] < count[category]:
+        best_category = category
+print(f"Most popular: {best_category}")
+print(f"Average time: {total_time[best_category] / count[best_category]:.1f}")

@@ -40,20 +40,22 @@
 #   扫描数组的时候，每个数字需要记下哪两样信息，才能回答"起始位置和终止位置"？
 #
 # TODO:
-n,q = map(int,input().split())
-num=[]
-quest=[]
-start={}
-last={}
-num=list(map(int,input().split()))
-for i in range(q):
-    quest.append(int(input()))
+
+n, q = map(int, input().split())
+nums = list(map(int, input().split()))
+queries = []
+for _ in range(q):
+    queries.append(int(input()))
+
+first = {}
+last = {}
 for i in range(n):
-    if num[i] not in start:
-        start[num[i]] = i
-    last[num[i]]=i
-for qe in quest:
-    if qe in start and qe in last:
-        print(f"{start[qe]} {last[qe]}")
+    if nums[i] not in first:
+        first[nums[i]] = i
+    last[nums[i]] = i
+
+for query in queries:
+    if query in first:
+        print(first[query], last[query])
     else:
-        print("-1 -1")
+        print(-1, -1)

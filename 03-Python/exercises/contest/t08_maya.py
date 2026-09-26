@@ -47,15 +47,18 @@
 # 还有个思考题：题目特意说明"保证 p_i 单调递增"，是给你什么便利？
 #
 # TODO:
-count=0
-pl=0
-n,m,k=map(int,input().split())
-s=list(map(int,input().split()))
-while pl < n-m :
-    pl=pl+m
-    if pl in s:
-        m=m+1
-    count=count+1
-count=count+1
-print(count)
-#思考题：不知道
+
+n, m, k = map(int, input().split())
+platforms = list(map(int, input().split()))
+
+pos = 0
+jumps = 0
+while pos < n - m:
+    pos = pos + m
+    if pos in platforms:
+        m = m + 1
+    jumps = jumps + 1
+jumps = jumps + 1
+print(jumps)
+
+# 思考题（p_i 单调递增有什么便利）：还没想出来

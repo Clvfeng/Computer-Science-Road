@@ -31,13 +31,15 @@
 # - n 到 10 万，你的做法能不能在 1 秒内跑完？
 #
 # TODO:
-n,d = map(int,input().split())
-num=list(map(int,input().split()))
-num.sort()
-count = 1
-s=num[0]
-for i in range(1,n):
-    if s+d <= num[i]:
-        count=count+1
-        s=num[i]
-print(count)
+
+n, d = map(int, input().split())
+nums = list(map(int, input().split()))
+nums.sort()
+
+picked = 1
+last_picked = nums[0]
+for i in range(1, n):
+    if last_picked + d <= nums[i]:
+        picked = picked + 1
+        last_picked = nums[i]
+print(picked)

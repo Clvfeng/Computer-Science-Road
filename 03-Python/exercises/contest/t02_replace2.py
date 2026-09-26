@@ -23,6 +23,7 @@
 # 提示：字符串有一个现成的工具可以"整体替换"，见聊天里的工具箱。
 #
 # TODO:
-num = input()
-n_num = num.replace('2','1')
-print(n_num)
+
+s = input()
+result = s.replace("2", "1")
+print(result)

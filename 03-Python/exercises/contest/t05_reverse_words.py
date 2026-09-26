@@ -26,11 +26,13 @@
 #   另一种是直接 print 的时候把列表"摊开"
 #
 # TODO:
-word = list(input().split())
-res = []
-for i in word:
-    s=i[::-1]
-    res.append(s)
-final=" ".join(res)
-print(final)
-#或者用print(*列表名字)，将列表摊开，中间用空格分隔
+
+words = input().split()
+reversed_words = []
+for w in words:
+    rev = w[::-1]
+    reversed_words.append(rev)
+result = " ".join(reversed_words)
+print(result)
+
+# 另一种写法：print(*列表名字)，把列表摊开，中间用空格分隔

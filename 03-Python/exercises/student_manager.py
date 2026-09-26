@@ -1,112 +1,104 @@
-# Day5 项目：学生信息管理小程序
-
-# 需求：
-# 用列表存储多个学生，每个学生是一个字典
-# 实现功能：
-#   1. 添加学生（姓名 + 成绩）
-#   2. 查询学生（输入姓名查成绩）
-#   3. 显示所有学生
-#   4. 删除指定学生
-#   5. 修改指定学生
-#   6. 退出
 import json
+
+
 class Student:
-    def __init__(self,name,score):
+    def __init__(self, name, score):
         self.name = name
         self.score = score
 
     def to_dict(self):
-        return {"name":self.name,"score":self.score}
+        return {"name": self.name, "score": self.score}
 
     @staticmethod
+    def from_dict(record):
+        return Student(record["name"], record["score"])
 
-    def from_dict(data):
-        return Student(data["name"],data["score"])
 
 def load_data():
     """从文件读取数据"""
     try:
-        with open("data.json","r",encoding="utf-8") as f:
-            data = json.load(f)
-            return [Student.from_dict(s) for s in data]
+        with open("data.json", "r", encoding="utf-8") as file:
+            records = json.load(file)
+            return [Student.from_dict(record) for record in records]
     except:
         return []
 
+
 def save_data(students):
     """保存数据到文件"""
-    with open("data.json","w",encoding="utf-8") as f:
-        json.dump([s.to_dict() for s in students], f)
-
-
-
-
+    with open("data.json", "w", encoding="utf-8") as file:
+        json.dump([student.to_dict() for student in students], file)
 
 
 def add_student(students):
-        name = input("输入名字:")
-        try:
-            score=int(input("输入成绩:"))
-        except:
-            print("输入无效，输入成绩必须是数字")
-            return
-        students.append(Student(name,score))
+    name = input("输入名字:")
+    try:
+        score = int(input("输入成绩:"))
+    except:
+        print("输入无效，输入成绩必须是数字")
+        return
+    students.append(Student(name, score))
+
 
 def show_students(students):
     if not students:
         print("该列表为空")
         return
-    for i,s in enumerate(students,1):
-        print(f"{i}.{s.name}:{s.score}")
+    for order, student in enumerate(students, 1):
+        print(f"{order}.{student.name}:{student.score}")
+
 
 def search_student(students):
-    name = input("输入姓名:")
     if not students:
         print("该列表为空")
         return
-    for s in students:
-        index = 0
-        if s.name == name:
-            print(f"{s.name}:{s.score}")
-            index=1
+    name = input("输入姓名:")
+    found = False
+    for student in students:
+        if student.name == name:
+            print(f"{student.name}:{student.score}")
+            found = True
             break
-    if index == 0:
+    if not found:
         print("NOT FOUND")
 
+
 def delete_student(students):
-    name = input("输入要删除学生的名字:")
     if not students:
         print("该列表为空")
         return
-    for s in students:
-            index = 0
-            if s.name == name:
-                students.remove(s)
-                index=1
-                break
-    if index == 0:
+    name = input("输入要删除学生的名字:")
+    found = False
+    for student in students:
+        if student.name == name:
+            students.remove(student)
+            found = True
+            break
+    if not found:
         print("没有找到要删除的学生")
 
+
 def update_student(students):
-    name = input("输入要修改的学生姓名:")
-    # 遍历查找，找到后让用户输入新成绩，更新 s["score"]
     if not students:
         print("该列表为空")
         return
-    index = 0
-    for s in students:
-        if s.name == name:
-            index = 1
+    name = input("输入要修改的学生姓名:")
+    found = False
+    for student in students:
+        if student.name == name:
+            found = True
             try:
                 score = int(input("输入成绩:"))
-                s.score = score
+                student.score = score
             except:
                 print("输入无效，输入成绩必须是数字")
                 break
-    if index == 0:
+    if not found:
         print("没有找到要修改的学生")
+
+
 def main():
     students = load_data()
-
     while True:
         print("\n===== 学生信息管理系统 =====")
         print("1. 添加学生")
@@ -116,18 +108,12 @@ def main():
         print("5. 修改指定学生")
         print("6. 退出")
         choice = input("请选择(1-6): ")
-
         if choice == "1":
-            # 你的代码：输入姓名和成绩，添加到 students 列表
             add_student(students)
-
         elif choice == "2":
-            # 你的代码：输入姓名，在 students 列表中查找并打印
-           search_student(students)
+            search_student(students)
         elif choice == "3":
-            # 你的代码：遍历打印所有学生
             show_students(students)
-
         elif choice == "4":
             delete_student(students)
         elif choice == "5":
@@ -136,8 +122,9 @@ def main():
             print("再见")
             save_data(students)
             break
-
         else:
             print("输入无效，请重新选择:")
+
+
 if __name__ == "__main__":
     main()
