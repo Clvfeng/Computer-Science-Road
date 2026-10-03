@@ -21,4 +21,4 @@ setup-env.ps1
 *.o
 *.obj
 # 临时测试数据（t09 大数据生成器产出）
-03-Python/exercises/contest/t09_big_*.txt
+t09_big_*.txt
