@@ -724,3 +724,15 @@ README/CHANGELOG/TODO 用于培养工程习惯。
 - 写：`[System.IO.File]::WriteAllText(路径, 内容, [System.Text.UTF8Encoding]::new($false))`（UTF-8 无 BOM）
 - 读：`Get-Content -Encoding UTF8`
 - **坑（2026-10-07 踩过）**：PowerShell 函数内部的 `Write-Output` 会被外层的赋值一起捕获。别写 `$t = 函数 ...` 这种「既取返回值、函数内部又打印」的写法 —— 提示文字会混进文件内容，还会静默写坏文件
+
+## 推送（2026-10-07 更新）
+
+- 本机代理 **127.0.0.1:7897 通常开着**（Clash 类工具）；GitHub 直连会被 Connection reset
+- 推送顺序：**先试直连** `git -c http.proxy= -c https.proxy= push`；**失败就走代理** `git -c http.proxy=http://127.0.0.1:7897 -c https.proxy=http://127.0.0.1:7897 push`
+- 判断代理是否开着：探测本机 7897 端口
+
+## 仓库清理记录
+
+- **2026-10-07**：`venv/` 从版本控制移除（`.gitignore` 加入 `venv/`），仓库跟踪文件 **656 → 84**；磁盘上的 venv 保留，可继续使用
+  - 历史提交里仍留有 venv 的旧副本 → 仓库下载体积不会立刻变小；彻底瘦身要重写历史，风险大，暂不做
+- **待用户决定**：根目录 `data.json`、`03-Python/exercises/data.json` 是程序在错误目录运行时产生的残留（学生管理程序的测试数据），是否清理
