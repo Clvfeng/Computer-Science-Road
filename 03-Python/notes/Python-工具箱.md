@@ -1154,6 +1154,7 @@ x in s      # O(1)，非常快
 比赛 3 小时 20 题 → 每题约 9 分钟，**单题跑超过几秒就要警惕**。
 
 ## 19. 二分查找（2026-10-04 新增）
+## 20. 考场速查（2026-10-07 新增）
 
 ### 什么时候用
 
@@ -1225,3 +1226,117 @@ Python 没有大括号，**缩进就是"谁属于谁"**：
 - 比 `for` **深** → 在**循环里面**
 
 写完一个循环，回头**数字符缩进**是必修动作。VS Code：选中多行 `Tab` 右移、`Shift+Tab` 左移，`Ctrl+Z` 撤销。
+
+
+## 20. 考场速查（2026-10-07 新增）
+
+> 这一节只放「**不是不会想，是忘了怎么写**」的东西。比赛里 10 秒要能翻到。
+> 原理和推导看前面各节。
+
+### 多组数据（第一行 T）
+
+```python
+T = int(input())
+for _ in range(T):
+    n, m = map(int, input().split())
+    a = list(map(int, input().split()))
+    # ... 算
+    print(...)          # ⚠️ 输出必须在循环里！判据：数题目要几行输出
+```
+
+### 读输入
+
+```python
+n = int(input())                      # 单独一行的整数
+a = list(map(int, input().split()))   # 一行 N 个整数（⚠️ map 一定套 list）
+x, y = map(int, input().split())      # 一行两个数
+```
+
+### 输出
+
+```python
+print(a, b)                    # 两个变量用空格分开 —— 最省事，print 自动加空格
+print(f"{a} {b}")              # 也可以
+print(f"{x:.1f}")              # 保留 1 位小数（四舍五入）
+print(f"{x:.2f}")              # 保留 2 位
+print("平均值是", x)           # 不用 f-string 也能输出变量，print 多参数自动加空格
+```
+
+### 集合 set
+
+```python
+s = set()            # ⚠️ 空集合只能 set()；{} 是空字典
+s.add(x)             # 加一个元素
+if x in s:           # 查得飞快 O(1)，列表是 O(n)
+s = {1, 2, 3}        # 直接创建
+```
+
+### 字典计数
+
+```python
+cnt = {}
+cnt[k] = cnt.get(k, 0) + 1     # 键不存在就当成 0（别直接用 cnt[k] += 1）
+for k, v in cnt.items():       # 遍历键值对
+for k in cnt:                  # 只遍历键
+```
+
+### 前缀和 + 同余（问「区间和是不是 m 的倍数」）
+
+```python
+mod = set()
+mod.add(0)                # 空前缀 P0 = 0
+s = 0
+for x in a:
+    s += x                # 累加前缀和
+    r = s % m
+    if r in mod:          # 之前出现过同样的余数 → 存在一个区间
+        ...               # 答案 Yes，可以 break
+    else:
+        mod.add(r)
+```
+
+### 排序
+
+```python
+a.sort()                 # 原地改自己，没有返回值 → 不能赋值给别人
+b = sorted(a)            # 返回新列表，原列表不动
+a.sort(reverse=True)     # 从大到小
+```
+
+### 二分找边界
+
+```python
+left, right = 0, n - 1
+first = -1                    # ⚠️ 必须在循环前初始化（否则可能 UnboundLocalError）
+while left <= right:
+    mid = (left + right) // 2
+    if a[mid] < k:
+        left = mid + 1        # ⚠️ 必须 ±1；写 left = mid 会死循环 → TLE
+    elif a[mid] == k:
+        first = mid
+        right = mid - 1       # 命中也不停，继续往左挤（找 last 就反过来）
+    else:
+        right = mid - 1
+```
+
+### 最大公因数 / 互质
+
+```python
+import math
+math.gcd(a, b)            # 最大公因数
+math.gcd(a, b) == 1       # 互质
+```
+
+### 大整数
+
+Python 的 `int` **没有上限**，10^100 直接 `int(input())` 就能读，不用像 C 那样担心溢出。
+但**不能循环 10^100 次** —— 范围离谱大 = 一定有公式，别写循环。
+
+### 范围 → 能用的做法
+
+| n 的范围 | 能用的做法 |
+|:---|:---|
+| n ≤ 10^5 | 循环 / 排序 / 二分都行 |
+| n ≤ 10^4 且 T ≤ 100 | 别写双层循环（n² × T 会超时） |
+| n ≤ 10^9 | 只能 O(log n) 或 O(1) |
+| n ≤ 10^100 | **别循环，一定有公式（结论题）** |
