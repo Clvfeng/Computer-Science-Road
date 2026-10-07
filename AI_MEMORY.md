@@ -697,3 +697,30 @@ README/CHANGELOG/TODO 用于培养工程习惯。
 - 2025 那套还剩 7 道：智能灯泡、01 串、棋盘炮、围棋数气、情侣相遇、区间询问（缺截图）、多边形游戏 + 数论环（只读思路）
 - 每天节奏：三题复习（10 分钟，不做完不学新内容）→ 新知识 → 真题 / 限时模拟 → 日志 + git
 - **4 天版三条铁律**：① 8 分钟没思路立刻跳 ② 样例过了不算过，再补一条踩另一分支的数据 ③ 先扫数据范围再动手
+
+
+---
+
+# 16. 环境与权限说明（2026-10-07 修复）
+
+## 工作区路径
+
+- 工作区：`D:\Code\Computer-Science-Road`
+- Python 解释器：`C:\Users\Lenovo\python312\python.exe`
+- 日志：`03-Python/notes/daily/`；工具箱：`03-Python/notes/Python-工具箱.md`
+- 复盘：`99-复盘/`；个人档案：`00-Personal-Profile/`
+
+## 权限问题（已解决）
+
+- **问题**：`03-Python/notes/daily/`、`Python-工具箱.md`、`AI_TASK.md`、`contest/` 等文件早期被沙箱会话改过 ACL / 所有者，写入时必须申请管理员授权
+- **本质**：这些对象缺少 `DESKTOP-5POGBVP\Lenovo` 的显式写权限（只靠 `Authenticated Users`，而沙箱进程用不上这条）
+- **2026-10-07 修复**：给仓库内全部对象补上 Lenovo 的显式 FullControl；`03-Python/exercises/review_2026-10-04.py` 的所有者是旧沙箱账号 `CodexSandboxOnline`（权限改不动），用「删除后按原字节重建」解决 —— 文件哈希一致，git 无改动
+- **验证**：全仓库 1162 个文件逐个读+写测试，**0 个被拒绝**
+- **仍会申请授权的情况**：`.git` 目录被 Codex 刻意设为只读 → **git add / commit / push 仍然需要授权**（设计如此，属正常）
+- **以后若又出现「拒绝访问」**：说明有新文件缺这条权限，补一条 `Lenovo:FullControl` 即可
+
+## 写中文文件的正确姿势
+
+- 写：`[System.IO.File]::WriteAllText(路径, 内容, [System.Text.UTF8Encoding]::new($false))`（UTF-8 无 BOM）
+- 读：`Get-Content -Encoding UTF8`
+- **坑（2026-10-07 踩过）**：PowerShell 函数内部的 `Write-Output` 会被外层的赋值一起捕获。别写 `$t = 函数 ...` 这种「既取返回值、函数内部又打印」的写法 —— 提示文字会混进文件内容，还会静默写坏文件
