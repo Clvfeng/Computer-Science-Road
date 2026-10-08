@@ -707,6 +707,7 @@ README/CHANGELOG/TODO 用于培养工程习惯。
 
 - 工作区：`D:\Code\Computer-Science-Road`
 - Python 解释器：`C:\Users\Lenovo\python312\python.exe`
+- 远程仓库：`https://github.com/Clvfeng/Computer-Science-Road.git`（2026-10-08 用户把 GitHub 用户名从 rgqq 改为 Clvfeng，本地远程地址已同步更新）
 - 日志：`03-Python/notes/daily/`；工具箱：`03-Python/notes/Python-工具箱.md`
 - 复盘：`99-复盘/`；个人档案：`00-Personal-Profile/`
 
